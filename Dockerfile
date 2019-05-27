@@ -6,4 +6,4 @@ RUN wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.
 && rm -rf mysql-connector-java-8.0.16 \
 && rm -r mysql-connector-java-8.0.16.tar.gz
 
-COPY govapp/target/rek-govapp-1.0.war $DEPLOY_DIR
+COPY simple-java-web-app/target/simple-java-web-app-1.0-SNAPSHOT.war $DEPLOY_DIR
