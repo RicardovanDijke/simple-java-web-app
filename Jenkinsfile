@@ -1,3 +1,5 @@
+import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
+
 pipeline {
     agent {
         docker {
@@ -29,5 +31,9 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh' 
             }
         }
+		stage('Deploy/Update'){
+				sh 'docker-compose down'
+				sh 'docker-compose up -d --build'
+		}
     }
 }
