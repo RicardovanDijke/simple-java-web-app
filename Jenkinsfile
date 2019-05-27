@@ -1,6 +1,10 @@
 import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
 
 pipeline {
+
+	environment {
+        PATH = "$PATH:/usr/bin/docker-compose"
+    }
     agent {
         docker {
             image 'maven:3-alpine'
