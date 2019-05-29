@@ -1,10 +1,4 @@
-import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
-
 pipeline {
-
-	environment {
-        PATH = "$PATH:/usr/bin/docker-compose"
-    }
     agent {
         docker {
             image 'maven:3-alpine'
@@ -30,16 +24,10 @@ pipeline {
                 }
             }
         }
-        //stage('Deliver') { 
-        //    steps {
-        //        sh './jenkins/scripts/deliver.sh' 
-        //    }
-        //}
-		stage('Deploy/Update'){
-			steps {
-				sh 'docker-compose down'
-				sh 'docker-compose up -d --build'
-			}
-		}
+        stage('Deliver') { 
+            steps {
+                sh './jenkins/scripts/deliver.sh' 
+            }
+        }
     }
 }
